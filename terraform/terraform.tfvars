@@ -1,0 +1,14 @@
+region = "us-east-1"
+access_key = "AKIAQNMBPJJD4RLIIAJW"
+secret_key = "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"
+s3_bucket_module_source = "terraform-aws-modules/s3-bucket/aws"
+s3_bucket_module_version = "~> 3.0"
+s3_bucket_terraform_name = "sajjad_terraform"
+vpc_name = "example-vpc"
+vpc_cidr = "10.0.0.0/16"
+vpc_azs = ["us-east-1a", "us-east-1b"]
+vpc_private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
+vpc_public_subnets  = ["10.0.101.0/24", "10.0.102.0/24"]
+vpc_enable_nat_gateway = true
+vpc_enable_igw = true
+vpc_nat_gateway_az = "us-east-1a"

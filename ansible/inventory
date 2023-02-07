@@ -1,0 +1,2 @@
+10.0.1.86 ansible_ssh_user=ubuntu ansible_ssh_private_key_file="/home/ubuntu/sjd-macbook.pem"
+10.0.2.105 ansible_ssh_user=ubuntu ansible_ssh_private_key_file="/home/ubuntu/sjd-macbook.pem"
