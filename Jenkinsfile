@@ -21,7 +21,7 @@ pipeline{
        stage('Build and Push'){
         steps{
             sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 028725692999.dkr.ecr.us-east-1.amazonaws.com"
-            sh "docker build -t 028725692999.dkr.ecr.us-east-1.amazonaws.com/assignment:v${BUILD_NUMBER} ."
+            sh "docker build -t 028725692999.dkr.ecr.us-east-1.amazonaws.com/upgrad-assignment:v${BUILD_NUMBER} ."
             sh "docker push 028725692999.dkr.ecr.us-east-1.amazonaws.com/assignment:v${BUILD_NUMBER}"
         }
        }
