@@ -32,7 +32,7 @@ pipeline{
              if ("$( docker container inspect -f '{{.State.Running}}' upgrad-assignment )" == "true")
              then docker rm -f upgrad-assignment
              fi
-             docker run -itd -p :3000 --name upgrad-assignment 028725692999.dkr.ecr.us-east-1.amazonaws.com/upgrad-assignment:v${BUILD_NUMBER} 
+             docker run -itd -p 3000:3000 --name upgrad-assignment 028725692999.dkr.ecr.us-east-1.amazonaws.com/upgrad-assignment:v${BUILD_NUMBER} 
              '''
             }
         }
