@@ -22,17 +22,17 @@ pipeline{
         steps{
             sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 028725692999.dkr.ecr.us-east-1.amazonaws.com"
             sh "docker build -t 028725692999.dkr.ecr.us-east-1.amazonaws.com/upgrad-assignment:v${BUILD_NUMBER} ."
-            sh "docker push 028725692999.dkr.ecr.us-east-1.amazonaws.com/assignment:v${BUILD_NUMBER}"
+            sh "docker push 028725692999.dkr.ecr.us-east-1.amazonaws.com/upgrad-assignment:v${BUILD_NUMBER}"
         }
        }
         stage('Deploy'){
          steps{
              sh '''
-             docker pull 028725692999.dkr.ecr.us-east-1.amazonaws.com/assignment:v${BUILD_NUMBER}
-             if ("$( docker container inspect -f '{{.State.Running}}' assignment )" == "true")
-             then docker rm -f assignment
+             docker pull 028725692999.dkr.ecr.us-east-1.amazonaws.com/upgrad-assignment:v${BUILD_NUMBER}
+             if ("$( docker container inspect -f '{{.State.Running}}' upgrad-assignment )" == "true")
+             then docker rm -f upgrad-assignment
              fi
-             docker run -itd -p :3000 --name assignment 028725692999.dkr.ecr.us-east-1.amazonaws.com/assignment:v${BUILD_NUMBER} 
+             docker run -itd -p :3000 --name upgrad-assignment 028725692999.dkr.ecr.us-east-1.amazonaws.com/upgrad-assignment:v${BUILD_NUMBER} 
              '''
             }
         }
